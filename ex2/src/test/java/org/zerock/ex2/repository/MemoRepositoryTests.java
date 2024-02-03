@@ -123,8 +123,4 @@ public class MemoRepositoryTests {
     public void testDeleteQueryMethod(){
         memoRepository.deleteMemosByMnoLessThan(10L);
     }
-
-
-
-
 }
