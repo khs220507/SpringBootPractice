@@ -9,11 +9,11 @@ plugins {
     id 'org.springframework.boot' version '2.6.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'org.jetbrains.kotlin.jvm'
 }
 
 group = 'org.zerock'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
 
 configurations {
     compileOnly {
@@ -60,6 +60,7 @@ dependencies {
 
 
     implementation 'net.coobird:thumbnailator:0.4.16'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
 }
 
@@ -73,4 +74,7 @@ sourceSets {
             srcDirs = ["$projectDir/src/main/java", "$projectDir/build/generated"]
         }
     }
+}
+kotlin {
+    jvmToolchain(11)
 }
