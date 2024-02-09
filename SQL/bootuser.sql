@@ -1,1 +1,1 @@
-SELECT * FROM tbl_todo;
+SELECT * FROM guestbook;
