@@ -12,6 +12,7 @@ import org.zerock.guestbook.dto.PageResultDTO;
 import org.zerock.guestbook.entity.Guestbook;
 import org.zerock.guestbook.repository.GuestbookRepository;
 
+import javax.swing.text.html.Option;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -45,5 +46,25 @@ public class GuestbookServiceImpl implements GuestbookService{
         Optional<Guestbook> result = repository.findById(gno);
         return result.isPresent()? entityToDto(result.get()): null;
     }
+
+    @Override
+    public void remove(Long gno){
+        repository.deleteById(gno);
+    }
+
+    @Override
+    public void modify(GuestbookDTO dto){
+        // 업데이트 하는 항목은 '제목', '내용'
+        Optional<Guestbook> result = repository.findById(dto.getGno());
+        if(result.isPresent()){
+            Guestbook entity = result.get();
+            entity.changeTitle(dto.getTitle());
+            entity.changeContent(dto.getContent());
+            repository.save(entity);
+        }
+
+    }
+
+
 
 }
