@@ -1,9 +1,12 @@
 package org.zerock.guestbook.service;
 
+import org.springframework.data.domain.Sort;
 import org.zerock.guestbook.dto.GuestbookDTO;
 import org.zerock.guestbook.dto.PageRequestDTO;
 import org.zerock.guestbook.dto.PageResultDTO;
 import org.zerock.guestbook.entity.Guestbook;
+
+import java.awt.print.Pageable;
 
 public interface GuestbookService {
     Long register(GuestbookDTO dto);
